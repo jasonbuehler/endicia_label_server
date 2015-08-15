@@ -4,4 +4,5 @@
   <RequestID>ABC</RequestID>
   <ConfirmationNumber>1000000</ConfirmationNumber>
   <AccountID>1000000</AccountID>
+  <Token>ABCDEF</Token>
 </UserSignUpResponse>
