@@ -43,5 +43,13 @@ describe EndiciaLabelServer::Util do
         expect(subject).to eql 'word'
       end
     end
+
+    context 'when passed anything else' do
+      subject { EndiciaLabelServer::Util.singularize('123') }
+
+      it 'should not do anything' do
+        expect(subject).to eql '123'
+      end
+    end
   end
 end
