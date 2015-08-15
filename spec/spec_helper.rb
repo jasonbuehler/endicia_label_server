@@ -1,5 +1,10 @@
 require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
+SimpleCov.start do
+  formatter SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    CodeClimate::TestReporter::Formatter
+  ]
+end
 
 path = File.expand_path("../../", __FILE__)
 require "#{path}/lib/endicia_label_server.rb"
