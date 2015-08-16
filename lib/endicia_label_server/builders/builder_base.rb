@@ -43,7 +43,7 @@ module EndiciaLabelServer
       end
 
       def add_hash(root_key, data)
-        xml_root_key = (root_key.is_a? String) ? root_key : Util.camelize(root_key)
+        xml_root_key = xmlify_key_name(root_key)
         root << Element.new(xml_root_key).tap do |org|
           data.each_pair do |key, value|
             xml_child_key = (key.is_a? String) ? key : Util.camelize(key)
@@ -85,6 +85,10 @@ module EndiciaLabelServer
         Element.new(name).tap do |request_action|
           request_action << value.to_str
         end
+      end
+
+      def xmlify_key_name(key)
+        (key.is_a? String) ? key : Util.camelize(key)
       end
     end
   end

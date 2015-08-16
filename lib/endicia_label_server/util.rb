@@ -16,6 +16,26 @@ module EndiciaLabelServer
           return word
         end
       end
+
+      def get_module_base_path(mod)
+        [
+          GEM_NAME,
+          "#{mod.downcase}s",
+          "#{mod.downcase}_base"
+        ].join('/')
+      end
+
+      def get_class_path(mod, klass)
+        [
+          GEM_NAME,
+          "#{mod.downcase}s",
+          "#{klass}_#{mod.downcase}"
+        ].join('/')
+      end
+
+      def get_class_name(mod, klass)
+        "#{Util::camelize(klass)}#{mod}"
+      end
     end
   end
 end

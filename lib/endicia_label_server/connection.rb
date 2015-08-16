@@ -66,8 +66,8 @@ module EndiciaLabelServer
     end
 
     def change_pass_phrase(builder = nil, &block)
-      builder_proxy(builder, CHANGE_PASS_PHRASE_ENDPOINT, ChangePassPhraseBuilder,
-                    ChangePassPhraseParser, block)
+      builder_proxy(builder, CHANGE_PASS_PHRASE_ENDPOINT,
+                    ChangePassPhraseBuilder, ChangePassPhraseParser, block)
     end
 
     private
