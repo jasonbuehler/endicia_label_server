@@ -11,8 +11,6 @@ Endicia Label Server Gem for accessing the Endicia Label Server API from Ruby. U
   - Book shipments
   - Return labels and tracking numbers for a shipment
 
-This gem is currently used in production at [Veeqo](http://www.veeqo.com)
-
 ## Installation
 
     gem install endicia_label_server
