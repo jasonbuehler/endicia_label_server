@@ -17,7 +17,7 @@ module EndiciaLabelServer
 
     attr_accessor :url
 
-    TEST_URL = 'https://LabelServer.Endicia.com'
+    TEST_URL = 'https://elstestserver.endicia.com'
     LIVE_URL = 'https://LabelServer.Endicia.com'
     ROOT_PATH = '/LabelService/EwsLabelService.asmx/'
 
@@ -77,6 +77,7 @@ module EndiciaLabelServer
     end
 
     def get_response_stream(path, body)
+      puts build_url(path)
       response = Excon.post(build_url(path), body: body, headers: HEADERS)
       StringIO.new(response.body)
     end
@@ -87,6 +88,7 @@ module EndiciaLabelServer
         block.call builder
       end
 
+      puts builder.to_xml
       response = get_response_stream path, builder.to_http_post
       parser.new.tap do |p|
         Ox.sax_parse(p, response)

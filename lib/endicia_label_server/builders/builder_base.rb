@@ -81,9 +81,9 @@ module EndiciaLabelServer
       end
 
       def element_with_value(name, value)
-        fail InvalidAttributeError, name unless value.respond_to?(:to_str)
+        fail InvalidAttributeError, name unless value.respond_to?(:to_s)
         Element.new(name).tap do |request_action|
-          request_action << value.to_str
+          request_action << value.to_s
         end
       end
 
