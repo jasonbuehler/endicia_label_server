@@ -6,7 +6,8 @@ module EndiciaLabelServer
     'postage_rates',
     'user_sign_up',
     'postage_label',
-    'change_pass_phrase'
+    'change_pass_phrase',
+    'buy_postage'
   ]
 
   autoload :SERVICES,              "#{GEM_NAME}/services"

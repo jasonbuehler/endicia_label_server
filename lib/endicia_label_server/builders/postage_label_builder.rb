@@ -13,6 +13,8 @@ module EndiciaLabelServer
       # Initializes a new {RateBuilder} object
       #
       def initialize(opts = {})
+        # root[:ImageFormat] = "PDF"
+        # root[:LabelSize] = "4x6"
         super 'LabelRequest', opts
       end
 

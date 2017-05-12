@@ -26,6 +26,7 @@ module EndiciaLabelServer
     REQUEST_RATES_ENDPOINT = 'CalculatePostageRatesXML'
     GET_USER_SIGNUP_ENDPOINT = 'GetUserSignUpXML'
     CHANGE_PASS_PHRASE_ENDPOINT = 'ChangePassPhraseXML'
+    BUY_POSTAGE_XML_ENDPOINT = 'BuyPostageXML'
 
     DEFAULT_PARAMS = {
       test_mode: false
@@ -70,6 +71,11 @@ module EndiciaLabelServer
                     ChangePassPhraseBuilder, ChangePassPhraseParser, block)
     end
 
+    def buy_postage(builder = nil, &block)
+      builder_proxy(builder, BUY_POSTAGE_XML_ENDPOINT,
+                    BuyPostageBuilder, BuyPostageParser, block)
+    end
+
     private
 
     def build_url(endpoint)
@@ -90,6 +96,7 @@ module EndiciaLabelServer
 
       puts builder.to_xml
       response = get_response_stream path, builder.to_http_post
+      # return response
       parser.new.tap do |p|
         Ox.sax_parse(p, response)
       end
